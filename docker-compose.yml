@@ -2,17 +2,16 @@ version: '2.2'
 
 services:
   ssh-terminal:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: anna-ssh-terminal
+    build:
+      context: ./
+      dockerfile: Dockerfile
+#    image: vladadmin/centos7-ssh
     restart: unless-stopped
-    container_name: anna-terminal
+    container_name: ssh-terminal
     hostname: ssh-terminal
     ports:
       - "2222:22"
     volumes:
-      - ./ssh-terminal/home/:/home
       - ./ssh-terminal/mnt/:/mnt
       - ./ssh-terminal/opt/:/opt
 #    privileged: true
